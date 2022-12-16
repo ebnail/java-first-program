@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.platform.commons.util.ReflectionUtils.*;
 
 public class Module5_Test {
-    private final String classToFind = "Finance";
+    private final String classToFind = "com.h2.Finance";
 
     private final InputStream systemIn = System.in;
     private final PrintStream systemOut = System.out;

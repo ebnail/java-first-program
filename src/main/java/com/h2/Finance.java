@@ -10,7 +10,7 @@ public class Finance{
 	public static final String MORTGAGE_CALCULATOR =  "mortgageCalculator";
 	
 	
-	public static final Map<String, String> commandsToUse = Map.of(BEST_LOAN_RATES, "usage: bestLoanRates", 
+	public static final Map<String, String> commandsToUsage = Map.of(BEST_LOAN_RATES, "usage: bestLoanRates", 
 					SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",  
 					MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>");
 	
@@ -19,13 +19,13 @@ public class Finance{
 		
 		switch (args[0]) {
 		
-		case "bestLoanRates":
+		case BEST_LOAN_RATES:
 			return args.length==1;
 			
-		case "savingsCalculator":
+		case SAVINGS_CALCULATOR:
 			return args.length==3;
 			
-		case "MortgageCalculator":
+		case MORTGAGE_CALCULATOR:
 			return args.length==4;
 		}
 		return false;
@@ -37,18 +37,18 @@ public class Finance{
 
 		case BEST_LOAN_RATES:
 
-			System.out.println("Finding best loan rates ...");			
+			System.out.print("Finding best loan rates ...\n");			
 			BestLoanRates.main(args);
 			return;
 			
 		case SAVINGS_CALCULATOR:
 
-			System.out.println("Finding your net savings ...");
+			System.out.print("Finding your net savings ...\n");
 			SavingsCalculator.main(args);
 			return;
 			
 		case MORTGAGE_CALCULATOR:			
-			System.out.println("Finding your monthly payment ...");
+			System.out.print("Finding your monthly payment ...\n");
 			MortgageCalculator.main(args);
 			return;
 		}
@@ -56,16 +56,15 @@ public class Finance{
 	
 		
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 		String command = args[0];
-		if (!commandsToUse.containsKey(command)) {
-			System.out.println(command + ": command not found");
+		if (!commandsToUsage.containsKey(command)) {
+			System.out.print(command + ": command not found\n");
 			return;
 		}
 		boolean isValidCommand  = validateCommandArguments(args);
 		if (isValidCommand==false) {
-			System.out.println(commandsToUse.get(command));
+			System.out.print(commandsToUsage.get(command)+"\n");
 			return;
 		}
 		
